@@ -1,19 +1,40 @@
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
+import{createBottomTabNavigator} from 'react-navigation-tabs'
+import {createStackNavigator} from 'react-navigation-stack';
+import MapScreen from './src/screens/MapScreen';
+import Checklist from './src/screens/Checklist';
+import TrackCreateScreen from './src/screens/TrackCreateScreen';
+import {setNavigator} from './src/navigationRef';
+import {Provider as LocationProvider} from './src/context/LocationContext'
+import {Provider as PositionProvider} from './src/context/PositionContext'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>test!</Text>
-    </View>
-  );
+const switchNavigator = createSwitchNavigator(
+
+  {
+    mainFlow: createBottomTabNavigator(
+      {
+      Main: TrackCreateScreen,
+       Map: MapScreen,
+       Checklist: Checklist
+      }
+    )
+  }
+
+)
+
+const App = createAppContainer(switchNavigator)
+
+export default()=>{
+
+  return(
+    <PositionProvider>
+    <LocationProvider>
+      <App ref={navigator=>{
+        setNavigator(navigator)
+      }}/>
+    </LocationProvider>
+    </PositionProvider>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
