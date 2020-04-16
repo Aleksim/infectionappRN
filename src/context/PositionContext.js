@@ -2,6 +2,8 @@ import createDataContext from './createDataContext';
 import trackerApi from '../api/tracker'
 
 
+
+
 const positionReducer = (state, action) =>{
     switch (action.type){
         case 'fetch_positions':

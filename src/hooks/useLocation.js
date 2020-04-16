@@ -13,7 +13,7 @@ useEffect(()=>{
             subscriber = await watchPositionAsync({
                 accuracy: Accuracy.BestForNavigation,
                 // timeInterval: 2000,
-                distance: 1
+                distance: 5
                 }, 
                 callback
             );
