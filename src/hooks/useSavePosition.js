@@ -11,7 +11,6 @@ export default () => {
 
     const savePosition = async() => {
        await createPosition(currentLocation);
-       console.log(currentLocation)
        reset()
     }
 
