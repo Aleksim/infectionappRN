@@ -20,7 +20,7 @@ const fetchPositions = dispatch =>async()=>{
 }
 
 const createPosition = dispatch => async (currentLocation)=> {
-    await trackerApi.post('/positions', {currentLocation})
+    await trackerApi.post('/positions', currentLocation)
     console.log(currentLocation)
 }
 
