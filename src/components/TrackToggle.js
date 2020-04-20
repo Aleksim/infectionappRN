@@ -1,7 +1,7 @@
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import React, { useEffect } from 'react';
-import {Button} from 'react-native-elements';
+import {Button, CheckBox} from 'react-native-elements';
 import { useState, useContext } from 'react';
 import {StyleSheet, View} from 'react-native'
 import { Context as LocationContext } from '../context/LocationContext';
@@ -30,8 +30,32 @@ const TrackToggle = () => {
     }else{
         return<>
             <View>
-                <Button style={styles.buttonItem} titleStyle= {{fontFamily:'Montserrat-Regular'}} title="I'm Not Sick" onPress={savePosition}></Button>
-                <Button style={styles.buttonItem} titleStyle= {{fontFamily:'Montserrat-Regular'}} title="I'm Feeling Sick" onPress={savePosition}></Button>
+                {/* <Button style={styles.buttonItem} titleStyle= {{fontFamily:'Montserrat-Regular'}} title="I'm Not Sick" onPress={()=>{console.log('click')}}></Button>
+                <Button style={styles.buttonItem} titleStyle= {{fontFamily:'Montserrat-Regular'}} title="I'm Feeling Sick" onPress={()=>{console.log('click')}}></Button> */}
+                <CheckBox
+                containerStyle={{backgroundColor:'transparent', borderColor: 'transparent'}}
+                textStyle={{fontFamily:'Montserrat-Regular', fontSize: 20, color: '#fff'}}
+                title="I'm not sick"
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                // checked={this.state.checked}
+                />
+                <CheckBox
+                containerStyle={{backgroundColor:'transparent', borderColor: 'transparent'}}
+                textStyle={{fontFamily:'Montserrat-Regular', fontSize: 20, color: '#fff'}}
+                title="I'm feeling sick"
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                // checked={this.state.checked}
+                />
+                <CheckBox
+                containerStyle={{backgroundColor:'transparent', borderColor: 'transparent'}}
+                textStyle={{fontFamily:'Montserrat-Regular', fontSize: 20, color: '#fff'}}
+                title="I believe I had COVID-19 but I recovered"
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                // checked={this.state.checked}
+                />
             </View>
              
         </>

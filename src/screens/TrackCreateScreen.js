@@ -6,6 +6,7 @@ import {StyleSheet, View} from 'react-native'
 import {Text} from 'react-native-elements'
 import {SafeAreaView, withNavigationFocus} from 'react-navigation'
 import {Context as LocationContext} from '../context/LocationContext'
+import {Button} from 'react-native-elements';
 import Map from '../components/Map'
 import useLocation from '../hooks/useLocation'
 import TrackToggle from '../components/TrackToggle'
@@ -63,10 +64,18 @@ const TrackCreateScreen = ({isFocused}) => {
                         </View>
                     </View>
 
+
+                    <View style={styles.submitButtonContainer}>
+                        <Button/>
+                    </View>
+
+
                     <View style={styles.shareContainer}>
                         <Feather style={styles.shareIconItem} name="send" size={30} color="white" />
                         <Text style={styles.shareTextItem}>Share to your friends and family</Text>
                     </View>
+
+
 
                     <View style={styles.errorStyle}>
                         {err ? <Text>Please enable location services from your device's settings</Text>: null}
@@ -91,9 +100,9 @@ const styles = StyleSheet.create({
             flex: 1
         },
             heroTextContainer:{
-                flex: 6,
-                // borderWidth:1,
-                // borderColor: 'red',
+                flex: 4,
+                borderWidth:1,
+                borderColor: 'white',
                 // backgroundColor:'green'
             },
                 heroHeadLineContainer1:{
@@ -139,13 +148,13 @@ const styles = StyleSheet.create({
                         // borderColor: 'red',
                         marginHorizontal: 20,
                         // fontWeight: 'bold',
-                        marginBottom: 30
+                        // marginBottom: 30
                     },
 
             buttonAndTextContainer:{
-                flex: 5,
-                // borderWidth:1,
-                // borderColor: 'red'
+                flex: 7,
+                borderWidth:1,
+                borderColor: 'white'
             },
 
                 buttonContainer:{
@@ -159,7 +168,7 @@ const styles = StyleSheet.create({
                 },
 
                     bulletPointContainer:{
-                        marginTop: 45,
+                        // marginTop: 45,
                         alignItems: 'stretch',
                         justifyContent: "space-around",
                         // borderWidth:1,
@@ -168,29 +177,37 @@ const styles = StyleSheet.create({
                         marginRight: 20
 
                     },
-                        firstBulletPointContainer:{
-                            alignItems: 'center',
-                            flexDirection: 'row',
-                            marginBottom: 10
-                        },
-                        secondBulletPointContainer:{
-                            alignItems: 'center',
-                            flexDirection: 'row',
-                            marginBottom: 10
-                        },
-                        thirdBulletPointContainer:{
-                            alignItems: 'center',
-                            flexDirection: 'row',
-                            marginBottom: 10
-                        },
-                            bulletPointText:{
-                                color: '#ECECEC',
-                                marginLeft: 20
-                            },
+                        // firstBulletPointContainer:{
+                        //     alignItems: 'center',
+                        //     flexDirection: 'row',
+                        //     marginBottom: 10
+                        // },
+                        // secondBulletPointContainer:{
+                        //     alignItems: 'center',
+                        //     flexDirection: 'row',
+                        //     marginBottom: 10
+                        // },
+                        // thirdBulletPointContainer:{
+                        //     alignItems: 'center',
+                        //     flexDirection: 'row',
+                        //     marginBottom: 10
+                        // },
+                        //     bulletPointText:{
+                        //         color: '#ECECEC',
+                        //         marginLeft: 20
+                        //     },
+
+                submitButtonContainer:{
+                    flex:1,
+                    borderWidth:1,
+                    borderColor: 'white',
+                },
+
+
                 shareContainer:{
                     flex:1,
-                    // borderWidth:1,
-                    // borderColor: 'red',
+                    borderWidth:1,
+                    borderColor: 'white',
                     flexDirection: 'row',
                     justifyContent: 'center',
                     alignItems: 'center'
@@ -199,7 +216,7 @@ const styles = StyleSheet.create({
                         // borderWidth:1,
                         // borderColor: 'red',
                         color: '#fff',
-                        marginBottom: 5,
+                        // marginBottom: 5,
                         fontWeight: 'bold',
                         fontFamily: 'Montserrat-Light'
                     },
