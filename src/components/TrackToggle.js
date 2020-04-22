@@ -17,6 +17,9 @@ const TrackToggle = () => {
     const [savePosition] = useSavePosition()
     const [cancelPosition] = useCancel()
 
+
+    const [selected, setSelection] = useState('')
+
         //custom fontit tällä
     let [fontsLoaded] = useFonts({
         "Montserrat-Regular": require('../../assets/fonts/Montserrat-Regular.ttf'),
@@ -38,6 +41,10 @@ const TrackToggle = () => {
                 title="I'm not sick"
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
+                checkedColor='green'
+                onPress={()=>{setSelection("I'm not sick")}}
+                checked={selected==="I'm not sick"? true: false}
+
                 // checked={this.state.checked}
                 />
                 <CheckBox
@@ -46,6 +53,9 @@ const TrackToggle = () => {
                 title="I'm sick"
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
+                onPress={()=>{setSelection("I'm sick")}}
+                checked={selected==="I'm sick"? true: false}
+                checkedColor='green'
                 // checked={this.state.checked}
                 />
                 <CheckBox
@@ -54,6 +64,9 @@ const TrackToggle = () => {
                 title="I have COVID-19"
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
+                onPress={()=>{setSelection("I have COVID-19")}}
+                checked={selected==="I have COVID-19"? true: false}
+                checkedColor='green'
                 // checked={this.state.checked}
                 />
                 <CheckBox
@@ -62,6 +75,9 @@ const TrackToggle = () => {
                 title="I have recovered from the COVID-19 virus"
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
+                onPress={()=>{setSelection("I have recovered from the COVID-19 virus")}}
+                checked={selected==="I have recovered from the COVID-19 virus"? true: false}
+                checkedColor='green'
                 // checked={this.state.checked}
                 />
                 <View >
