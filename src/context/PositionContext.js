@@ -19,6 +19,8 @@ const fetchPositions = dispatch =>async()=>{
     // console.log(response)
 }
 
+//tänne pitää luoda ne kaikki eri tauluihin tallentavat action creatorit
+
 const createPosition = dispatch => async (currentLocation)=> {
     await trackerApi.post('/positions', currentLocation)
     console.log(currentLocation)

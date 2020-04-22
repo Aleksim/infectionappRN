@@ -5,6 +5,7 @@ import {Button, CheckBox} from 'react-native-elements';
 import { useState, useContext } from 'react';
 import {StyleSheet, View} from 'react-native'
 import { Context as LocationContext } from '../context/LocationContext';
+import { Context as SicknessContext } from '../context/SicknessContext';
 import useSavePosition from '../hooks/useSavePosition';
 import useCancel from '../hooks/useCancel';
 
@@ -14,6 +15,7 @@ import useCancel from '../hooks/useCancel';
 const TrackToggle = () => {
 
     const {state: {currentLocation}} = useContext(LocationContext)
+    const {addSickness} = useContext(SicknessContext)
     const [savePosition] = useSavePosition()
     const [cancelPosition] = useCancel()
 
@@ -28,6 +30,14 @@ const TrackToggle = () => {
      });
 
 
+        //useEffect, jotta saadaan lähetettyä oikea data sinne stateen. Päivittyy kun selected muuttuu.
+        useEffect(()=>{
+            addSickness(selected)
+        }, [selected])
+
+
+
+        //sisältö
      if(!fontsLoaded){
         return <AppLoading/>
     }else{
@@ -85,6 +95,7 @@ const TrackToggle = () => {
                     style={styles.buttonContainer}
                     title="Submit"
                     buttonStyle={{borderRadius: 25, width: 250}}
+                    onPress={savePosition}
                     />
                 </View>
             </View>
