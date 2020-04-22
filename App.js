@@ -17,7 +17,7 @@ const switchNavigator = createSwitchNavigator(
       {
       Main: TrackCreateScreen,
        Map: MapScreen,
-       Checklist: Checklist
+      //  Checklist: Checklist
       }
     )
   }

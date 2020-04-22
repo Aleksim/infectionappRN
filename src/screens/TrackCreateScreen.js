@@ -6,7 +6,6 @@ import {StyleSheet, View} from 'react-native'
 import {Text} from 'react-native-elements'
 import {SafeAreaView, withNavigationFocus} from 'react-navigation'
 import {Context as LocationContext} from '../context/LocationContext'
-import {Button} from 'react-native-elements';
 import Map from '../components/Map'
 import useLocation from '../hooks/useLocation'
 import TrackToggle from '../components/TrackToggle'
@@ -45,7 +44,7 @@ const TrackCreateScreen = ({isFocused}) => {
                     <View style={styles.heroTextContainer}>
                         <View style={styles.heroHeadLineContainer1}>
                             <Text style={styles.areYouFeelingSickItem}>
-                                How are you feeling?
+                                How are you feeling today?
                             </Text>
                         </View>
                     </View>
@@ -62,11 +61,6 @@ const TrackCreateScreen = ({isFocused}) => {
                         
                         <View style={styles.bulletPointAndShareContainer}>
                         </View>
-                    </View>
-
-
-                    <View style={styles.submitButtonContainer}>
-                        <Button/>
                     </View>
 
 
@@ -100,9 +94,9 @@ const styles = StyleSheet.create({
             flex: 1
         },
             heroTextContainer:{
-                flex: 4,
-                borderWidth:1,
-                borderColor: 'white',
+                flex: 3,
+                // borderWidth:1,
+                // borderColor: 'white',
                 // backgroundColor:'green'
             },
                 heroHeadLineContainer1:{
@@ -153,8 +147,8 @@ const styles = StyleSheet.create({
 
             buttonAndTextContainer:{
                 flex: 7,
-                borderWidth:1,
-                borderColor: 'white'
+                // borderWidth:1,
+                // borderColor: 'white'
             },
 
                 buttonContainer:{
@@ -206,8 +200,8 @@ const styles = StyleSheet.create({
 
                 shareContainer:{
                     flex:1,
-                    borderWidth:1,
-                    borderColor: 'white',
+                    // borderWidth:1,
+                    // borderColor: 'white',
                     flexDirection: 'row',
                     justifyContent: 'center',
                     alignItems: 'center'
@@ -234,8 +228,8 @@ const styles = StyleSheet.create({
 })
 
 TrackCreateScreen.navigationOptions = {
-    title: 'Leave Traces',
-    tabBarIcon: <MaterialCommunityIcons name="walk" size={30} />
+    title: 'Status',
+    tabBarIcon: <MaterialCommunityIcons name="account" size={30} />
 }
 
 

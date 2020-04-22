@@ -43,7 +43,7 @@ const TrackToggle = () => {
                 <CheckBox
                 containerStyle={{backgroundColor:'transparent', borderColor: 'transparent'}}
                 textStyle={{fontFamily:'Montserrat-Regular', fontSize: 20, color: '#fff'}}
-                title="I'm feeling sick"
+                title="I'm sick"
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
                 // checked={this.state.checked}
@@ -51,25 +51,37 @@ const TrackToggle = () => {
                 <CheckBox
                 containerStyle={{backgroundColor:'transparent', borderColor: 'transparent'}}
                 textStyle={{fontFamily:'Montserrat-Regular', fontSize: 20, color: '#fff'}}
-                title="I believe I had COVID-19 but I recovered"
+                title="I have COVID-19"
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
                 // checked={this.state.checked}
                 />
+                <CheckBox
+                containerStyle={{backgroundColor:'transparent', borderColor: 'transparent'}}
+                textStyle={{fontFamily:'Montserrat-Regular', fontSize: 20, color: '#fff'}}
+                title="I have recovered from the COVID-19 virus"
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                // checked={this.state.checked}
+                />
+                <View >
+                    <Button 
+                    style={styles.buttonContainer}
+                    title="Submit"
+                    buttonStyle={{borderRadius: 25, width: 250}}
+                    />
+                </View>
             </View>
              
         </>
         }
     };
     const styles = StyleSheet.create({
-        buttonItem:{
-            // borderWidth:1,
-            // borderColor: 'red',
 
-            paddingBottom: 10
-        },
-            saveButtonContainer:{
-                marginRight: 20
+            buttonContainer:{
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingTop: 20
             },
             cancelButtonContainer:{
             },
