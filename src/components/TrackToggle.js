@@ -7,6 +7,7 @@ import {StyleSheet, View} from 'react-native'
 import { Context as LocationContext } from '../context/LocationContext';
 import { Context as SicknessContext } from '../context/SicknessContext';
 import useSavePosition from '../hooks/useSavePosition';
+import useSaveSickLocation from '../hooks/useSaveSickLocation';
 import useCancel from '../hooks/useCancel';
 
 
@@ -16,7 +17,9 @@ const TrackToggle = () => {
 
     const {state: {currentLocation}} = useContext(LocationContext)
     const {addSickness} = useContext(SicknessContext)
-    const [savePosition] = useSavePosition()
+    const [call] = useSaveSickLocation()
+
+    // const [savePosition] = useSavePosition()
     const [cancelPosition] = useCancel()
 
 
@@ -95,7 +98,7 @@ const TrackToggle = () => {
                     style={styles.buttonContainer}
                     title="Submit"
                     buttonStyle={{borderRadius: 25, width: 250}}
-                    onPress={savePosition}
+                    onPress={call}
                     />
                 </View>
             </View>

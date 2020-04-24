@@ -21,7 +21,7 @@ const fetchPositions = dispatch =>async()=>{
 
 //tänne pitää luoda ne kaikki eri tauluihin tallentavat action creatorit
 
-const createPosition = dispatch => async (currentLocation)=> {
+const createPosition1 = dispatch => async (currentLocation)=> {
     await trackerApi.post('/positions', currentLocation)
     console.log(currentLocation)
 }
@@ -29,6 +29,6 @@ const createPosition = dispatch => async (currentLocation)=> {
 export const {Provider, Context} = createDataContext(
 
     positionReducer,
-    {fetchPositions, createPosition},
+    {fetchPositions, createPosition1},
     []
 )
