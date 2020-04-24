@@ -4,25 +4,33 @@ import {Context as LocationContext} from '../context/LocationContext';
 import {Context as SicknessContext} from '../context/SicknessContext';
 
 export default () => {
-    const{ createPosition1, createPosition2, createPosition3 } = useContext(PositionContext)
+    const{ createPosition1, createPosition2, createPosition3, createPosition4, createPosition5 } = useContext(PositionContext)
 
     const {state: {currentLocation}, reset} = useContext(LocationContext)
 
     const {state:{sickness}} = useContext(SicknessContext)
 
     let call = null
+
     //Helper funktiot
-    const savePositionToHealthies = () => {
-         console.log('healthies')
+    const savePositionToHealthies = async () => {
+        await createPosition2(currentLocation);
+        reset()
     }
 
     const savePositionToCovids =  async() => {
-        await createPosition1(currentLocation);
+        await createPosition3(currentLocation);
         reset()
      }
 
-     const savePositionToRecovereds = () => {
-        console.log('recovereds')
+     const savePositionToRecovereds = async () => {
+        await createPosition4(currentLocation);
+        reset()
+     }
+
+     const savePositionToSicks = async () => {
+        await createPosition5(currentLocation);
+        reset()
      }
 
 
@@ -38,8 +46,11 @@ export default () => {
         case "I have recovered from the COVID-19 virus":
             call = savePositionToRecovereds
             break;
+        case "I'm sick":
+            call = savePositionToSicks
+            break;
         default:
-            call = savePositionToHealthies
+            call = null
     }
 
 
