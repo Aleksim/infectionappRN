@@ -1,12 +1,12 @@
 import {useContext, useEffect} from 'react';
-import {Context as PositionContext} from '../context/PositionContext';
+import {Context as HealthiesContext} from '../context/HealthiesContext';
 
 export default () => {
 
-    const {state, fetchPositions} = useContext(PositionContext)
+    const {state, fetchHealthies} = useContext(HealthiesContext)
 
     useEffect(()=>{
-        fetchPositions()
+        fetchHealthies()
     },[])
 
     const data = state.map(i=>i.locations)
@@ -19,7 +19,7 @@ export default () => {
 
     const result = merged.filter(j=>j.timestamp>threedaysago)
 
-    const coordinates = result.map(k=>k.coords)
+    const healthiesCoordinates = result.map(k=>k.coords)
 
-    return[coordinates]
+    return[healthiesCoordinates]
 }

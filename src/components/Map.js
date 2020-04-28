@@ -4,7 +4,10 @@ import {StyleSheet, ActivityIndicator } from 'react-native'
 import MapView, {Circle, Heatmap} from 'react-native-maps';
 import {Text} from 'react-native-elements'
 import {Context as LocationContext} from '../context/LocationContext';
-import useData from '../hooks/useData'
+import useHealthiesData from '../hooks/useHealthiesData'
+import useCovidsData from '../hooks/useCovidsData'
+import useSicksData from '../hooks/useSicksData'
+import useRecoveredsData from '../hooks/useRecoveredsData'
 import useCurrentLocation from '../hooks/useCurrentLocation'
 
 
@@ -13,7 +16,10 @@ const Map = () =>{
 
     const {state: {currentLocation}} = useContext(LocationContext)
 
-    // const [coordinates] = useData()
+    const [sicksCoordinates] = useSicksData()
+    const [healthiesCoordinates] = useHealthiesData()
+    const [covidsCoordinates] = useCovidsData()
+    const [recoveredsCoordinates] = useRecoveredsData()
 
     const [currentloc] = useCurrentLocation()
 
@@ -53,9 +59,11 @@ const Map = () =>{
                 fillColor="#21243d"
              />
 
-        {/* {coordinates.length<1 ? null :             
+
+{/* healthies heatmap */}
+        {healthiesCoordinates.length<1 ? null :             
         <Heatmap 
-                points = {coordinates}
+                points = {healthiesCoordinates}
                 radius={40}
                 opacity={1}
                 gradient={{
@@ -65,7 +73,53 @@ const Map = () =>{
                 }}
             > 
             </Heatmap>
-        } */}
+        }
+
+    {/* covids heatmap */}
+        {covidsCoordinates.length<1 ? null :             
+        <Heatmap 
+                points = {covidsCoordinates}
+                radius={40}
+                opacity={1}
+                gradient={{
+                    colors:["navy", "blue", "green", "yellow", "red" ],
+                    startPoints:[0.01, 0.04, 0.1, 0.45, 0.5],
+                     colorMapSize: 2000
+                }}
+            > 
+        </Heatmap>
+        }
+
+    {/* recovereds heatmap */}
+    {recoveredsCoordinates.length<1 ? null :             
+        <Heatmap 
+                points = {recoveredsCoordinates}
+                radius={40}
+                opacity={1}
+                gradient={{
+                    colors:["navy", "blue", "green", "yellow", "red" ],
+                    startPoints:[0.01, 0.04, 0.1, 0.45, 0.5],
+                     colorMapSize: 2000
+                }}
+            > 
+        </Heatmap>
+        }
+
+ {/* sicks heatmap */}
+    {sicksCoordinates.length<1 ? null :             
+        <Heatmap 
+                points = {sicksCoordinates}
+                radius={40}
+                opacity={1}
+                gradient={{
+                    colors:["navy", "blue", "green", "yellow", "red" ],
+                    startPoints:[0.01, 0.04, 0.1, 0.45, 0.5],
+                     colorMapSize: 2000
+                }}
+            > 
+        </Heatmap>
+        }
+
         </MapView>
     
     )
