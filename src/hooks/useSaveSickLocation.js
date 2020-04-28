@@ -40,17 +40,17 @@ export default () => {
     }
 
     const savePositionToCovids =  async() => {
-        await createCovids(currentLocation);
+        await createCovids(locations);
         reset()
      }
 
      const savePositionToRecovereds = async () => {
-        await createRecovereds(currentLocation);
+        await createRecovereds(locations);
         reset()
      }
 
      const savePositionToSicks = async () => {
-        await createSicks(currentLocation);
+        await createSicks(locations);
         reset()
      }
 

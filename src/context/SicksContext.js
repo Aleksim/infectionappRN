@@ -16,9 +16,9 @@ const fetchSicks = dispatch =>async()=>{
     // console.log(response)
 }
 
-const createSicks = dispatch => async (currentLocation)=> {
-    await trackerApi.post('/sicks', currentLocation)
-    console.log(currentLocation)
+const createSicks = dispatch => async (locations)=> {
+    await trackerApi.post('/sicks', {locations})
+    console.log(locations)
 }
 
 export const {Provider, Context} = createDataContext(
