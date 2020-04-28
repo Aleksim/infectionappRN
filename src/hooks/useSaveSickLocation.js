@@ -24,7 +24,10 @@ export default () => {
 
     const{ createPosition1, createPosition2, createPosition3, createPosition4, createPosition5 } = useContext(PositionContext)
 
-    const {state: {currentLocation}, reset} = useContext(LocationContext)
+    // const {state: {currentLocation}, reset} = useContext(LocationContext)
+
+    const {state: {locations}, reset} = useContext(LocationContext)
+
 
     const {state:{sickness}} = useContext(SicknessContext)
 
@@ -32,7 +35,7 @@ export default () => {
 
     //Helper funktiot
     const savePositionToHealthies = async () => {
-        await createHealthies(currentLocation);
+        await createHealthies(locations);
         reset()
     }
 

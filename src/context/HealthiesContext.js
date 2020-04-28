@@ -18,7 +18,7 @@ const fetchHealthies = dispatch =>async()=>{
 
 const createHealthies = dispatch => async (locations)=> {
     await trackerApi.post('/healthies', {locations})
-    console.log(currentLocation)
+    console.log(locations)
 }
 
 export const {Provider, Context} = createDataContext(

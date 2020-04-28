@@ -6,14 +6,17 @@ const locationReducer = (state, action) => {
     switch(action.type){
         case 'add_current_location':
             return{...state, currentLocation: action.payload};
-            case 'reset':
-                return{...state, currentLocation: null}
+        case 'add_location':
+            return {...state, locations: [action.payload]};
+        case 'reset':
+            return{...state, locations: []}
         default:
             return state;
     }
 }
 const addLocation = dispatch => (location) => {
     dispatch({type: 'add_current_location', payload: location})
+    dispatch({type:'add_location', payload:location})
 }
 
 
@@ -27,7 +30,7 @@ export const {Context, Provider} = createDataContext(
     locationReducer,
     {addLocation, reset},
 
-    { currentLocation: null}
+    { currentLocation: null, locations:[]}
 )
 
 
