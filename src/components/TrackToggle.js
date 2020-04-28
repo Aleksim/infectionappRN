@@ -20,7 +20,7 @@ const TrackToggle = () => {
     const [call] = useSaveSickLocation()
 
     // const [savePosition] = useSavePosition()
-    const [cancelPosition] = useCancel()
+    // const [cancelPosition] = useCancel()
 
 
     const [selected, setSelection] = useState('')

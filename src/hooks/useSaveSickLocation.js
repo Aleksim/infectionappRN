@@ -2,8 +2,26 @@ import {useContext} from 'react';
 import {Context as PositionContext} from '../context/PositionContext';
 import {Context as LocationContext} from '../context/LocationContext';
 import {Context as SicknessContext} from '../context/SicknessContext';
+import {Context as HealthiesContext} from '../context/HealthiesContext';
+import {Context as CovidsContext} from '../context/CovidsContext';
+import {Context as RecoveredsContext} from '../context/RecoveredsContext';
+import {Context as SicksContext} from '../context/SicksContext';
+
+
+
+
 
 export default () => {
+
+    const {createHealthies} = useContext(HealthiesContext)
+
+    const {createCovids} = useContext(CovidsContext)
+
+    const {createRecovereds} = useContext(RecoveredsContext)
+
+    const {createSicks} = useContext(SicksContext)
+
+
     const{ createPosition1, createPosition2, createPosition3, createPosition4, createPosition5 } = useContext(PositionContext)
 
     const {state: {currentLocation}, reset} = useContext(LocationContext)
@@ -14,22 +32,22 @@ export default () => {
 
     //Helper funktiot
     const savePositionToHealthies = async () => {
-        await createPosition2(currentLocation);
+        await createHealthies(currentLocation);
         reset()
     }
 
     const savePositionToCovids =  async() => {
-        await createPosition3(currentLocation);
+        await createCovids(currentLocation);
         reset()
      }
 
      const savePositionToRecovereds = async () => {
-        await createPosition4(currentLocation);
+        await createRecovereds(currentLocation);
         reset()
      }
 
      const savePositionToSicks = async () => {
-        await createPosition5(currentLocation);
+        await createSicks(currentLocation);
         reset()
      }
 

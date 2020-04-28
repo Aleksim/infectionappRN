@@ -10,6 +10,11 @@ import {setNavigator} from './src/navigationRef';
 import {Provider as LocationProvider} from './src/context/LocationContext'
 import {Provider as PositionProvider} from './src/context/PositionContext'
 import {Provider as SicknessProvider} from './src/context/SicknessContext'
+import {Provider as HealthiesProvider} from './src/context/HealthiesContext'
+import {Provider as CovidsProvider} from './src/context/CovidsContext'
+import {Provider as RecoveredsProvider} from './src/context/RecoveredsContext'
+import {Provider as SicksProvider} from './src/context/SicksContext'
+
 
 const switchNavigator = createSwitchNavigator(
 
@@ -30,6 +35,10 @@ const App = createAppContainer(switchNavigator)
 export default()=>{
 
   return(
+    <SicksProvider>
+    <RecoveredsProvider>
+    <CovidsProvider>
+    <HealthiesProvider>
     <PositionProvider>
     <SicknessProvider>
     <LocationProvider>
@@ -39,5 +48,9 @@ export default()=>{
     </LocationProvider>
     </SicknessProvider>
     </PositionProvider>
+    </HealthiesProvider>
+    </CovidsProvider>
+    </RecoveredsProvider>
+    </SicksProvider>
   )
 }
