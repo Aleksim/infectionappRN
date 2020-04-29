@@ -2,19 +2,56 @@
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import React, {useContext, useCallback} from 'react'
-import {StyleSheet, View} from 'react-native'
+import {StyleSheet, View, Share, TouchableOpacity} from 'react-native'
 import {Text} from 'react-native-elements'
 import {SafeAreaView, withNavigationFocus} from 'react-navigation'
 import {Context as LocationContext} from '../context/LocationContext'
-import Map from '../components/Map'
 import useLocation from '../hooks/useLocation'
 import TrackToggle from '../components/TrackToggle'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient';
-import {AntDesign} from '@expo/vector-icons'
 import {Feather} from '@expo/vector-icons'
 
 const TrackCreateScreen = ({isFocused}) => {
+
+
+   const onShare = async () => {
+        // const uri = await getGalleryImageAsync(1);
+    
+        Share.share(
+          {
+            title: 'Check this out',
+            message: 'Check out this one click solution to track Covid-19. This app is amazing.'
+            // url: uri,
+          },
+          {
+            excludedActivityTypes: [
+              // 'com.apple.UIKit.activity.PostToWeibo',
+              'com.apple.UIKit.activity.Print',
+              'com.apple.UIKit.activity.CopyToPasteboard',
+              // 'com.apple.UIKit.activity.AssignToContact',
+              // 'com.apple.UIKit.activity.SaveToCameraRoll',
+              // 'com.apple.UIKit.activity.AddToReadingList',
+              // 'com.apple.UIKit.activity.PostToFlickr',
+              // 'com.apple.UIKit.activity.PostToVimeo',
+              // 'com.apple.UIKit.activity.PostToTencentWeibo',
+              'com.apple.UIKit.activity.AirDrop',
+              // 'com.apple.UIKit.activity.OpenInIBooks',
+              'com.apple.UIKit.activity.MarkupAsPDF',
+              // 'com.apple.reminders.RemindersEditorExtension',
+              // 'com.apple.mobilenotes.SharingExtension',
+              // 'com.apple.mobileslideshow.StreamShareService',
+              // 'com.linkedin.LinkedIn.ShareExtension',
+              // 'pinterest.ShareExtension',
+              // 'com.google.GooglePlus.ShareExtension',
+              // 'com.tumblr.tumblr.Share-With-Tumblr',
+              // 'net.whatsapp.WhatsApp.ShareExtension', //WhatsApp
+            ],
+          }
+        );
+      };
+
+
 
     const {addLocation}=useContext(LocationContext)
     
@@ -64,10 +101,10 @@ const TrackCreateScreen = ({isFocused}) => {
                     </View>
 
 
-                    <View style={styles.shareContainer}>
+                    <TouchableOpacity style={styles.shareContainer} onPress={onShare}>
                         <Feather style={styles.shareIconItem} name="send" size={30} color="white" />
                         <Text style={styles.shareTextItem}>Share to your friends and family</Text>
-                    </View>
+                    </TouchableOpacity>
 
 
 

@@ -60,65 +60,66 @@ const Map = () =>{
              />
 
 
-{/* healthies heatmap */}
-        {healthiesCoordinates.length<1 ? null :             
-        <Heatmap 
-                points = {healthiesCoordinates}
-                radius={40}
-                opacity={1}
-                gradient={{
-                    colors:["navy", "blue", "green", "yellow", "red" ],
-                    startPoints:[0.01, 0.04, 0.1, 0.45, 0.5],
-                     colorMapSize: 2000
-                }}
-            > 
-            </Heatmap>
-        }
+        {/* healthies heatmap */}
+            {healthiesCoordinates.length<1 ? null :             
+                <Heatmap 
+                    points = {healthiesCoordinates}
+                    radius={40}
+                    opacity={1}
+                    gradient={{
+                        colors:['rgba(33,102,172,0)', 'rgb(104,208,111)', 'rgb(210,240,218)', 'rgb(200,253,221)', 'rgb(99,240,160)'],
+                        startPoints:[0.2, 0.4, 0.6, 0.8, 1],
+                        colorMapSize: 2000
+                    }}
+                > 
+                </Heatmap>
+            }
+            {/* covids heatmap */}
+            {covidsCoordinates.length<1 ? null :             
+                <Heatmap 
+                        points = {covidsCoordinates}
+                        radius={40}
+                        opacity={1}
+                        gradient={{
+                            colors:['rgba(33,102,172,0)', 'rgb(103,169,207)', 'rgb(209,229,240)', 'rgb(253,219,199)', 'rgb(239,138,98)' ],
+                            startPoints:[0.2, 0.4, 0.6, 0.8, 1],
+                            colorMapSize: 2000
+                        }}
+                    > 
+                </Heatmap>
+                }
+        
+            {/* recovereds heatmap */}
+            {recoveredsCoordinates.length<1 ? null :             
+                <Heatmap 
+                        points = {recoveredsCoordinates}
+                        radius={40}
+                        opacity={1}
+                        gradient={{
+                            colors:['rgba(33,102,172,0)', '#7268D0', '#D2E7F0', '#C8E8FD', '#6464FA' ],
+                            startPoints:[0.2, 0.4, 0.6, 0.8, 1],
+                            colorMapSize: 2000
+                        }}
+                    > 
+                </Heatmap>
+                }
+        
+        {/* sicks heatmap */}
+            {sicksCoordinates.length<1 ? null :             
+                <Heatmap
+                        points = {sicksCoordinates}
+                        radius={40}
+                        opacity={1}
+                        gradient={{
+                            colors:['rgba(33,102,172,0)', 'rgb(103,169,207)', 'rgb(240,234,210)', 'rgb(253,242,200)', 'rgb(240,117,99)' ],
+                            startPoints:[0.2, 0.4, 0.6, 0.8, 1],
+                            colorMapSize: 2000
+                        }}
+                    > 
+                </Heatmap>
+                }
 
-    {/* covids heatmap */}
-        {covidsCoordinates.length<1 ? null :             
-        <Heatmap 
-                points = {covidsCoordinates}
-                radius={40}
-                opacity={1}
-                gradient={{
-                    colors:["navy", "blue", "green", "yellow", "red" ],
-                    startPoints:[0.01, 0.04, 0.1, 0.45, 0.5],
-                     colorMapSize: 2000
-                }}
-            > 
-        </Heatmap>
-        }
 
-    {/* recovereds heatmap */}
-    {recoveredsCoordinates.length<1 ? null :             
-        <Heatmap 
-                points = {recoveredsCoordinates}
-                radius={40}
-                opacity={1}
-                gradient={{
-                    colors:["navy", "blue", "green", "yellow", "red" ],
-                    startPoints:[0.01, 0.04, 0.1, 0.45, 0.5],
-                     colorMapSize: 2000
-                }}
-            > 
-        </Heatmap>
-        }
-
- {/* sicks heatmap */}
-    {sicksCoordinates.length<1 ? null :             
-        <Heatmap 
-                points = {sicksCoordinates}
-                radius={40}
-                opacity={1}
-                gradient={{
-                    colors:["navy", "blue", "green", "yellow", "red" ],
-                    startPoints:[0.01, 0.04, 0.1, 0.45, 0.5],
-                     colorMapSize: 2000
-                }}
-            > 
-        </Heatmap>
-        }
 
         </MapView>
     
